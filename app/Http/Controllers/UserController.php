@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+
 class UserController extends Controller
 {
     //Insert into the database
@@ -11,10 +12,10 @@ class UserController extends Controller
     {
         // For Validation
         $request->validate([
-            'id'=>'required | max:2',
-            'name'=>'required | min:5',
-            'email'=>'required | email',
-            'password'=>'required | min:4'
+            'id' => 'required | max:2',
+            'name' => 'required | min:5',
+            'email' => 'required | email',
+            'password' => 'required | min:4'
         ]);
 
         $id = $request->id;
@@ -24,27 +25,27 @@ class UserController extends Controller
 
         // Eloquent Model for inserting the Data into the database
         User::create([
-            'id'=>$id,
-            'name'=>$name,
-            'email'=>$email,
-            'password'=>$password
+            'id' => $id,
+            'name' => $name,
+            'email' => $email,
+            'password' => $password
         ]);
 
-        return view('welcome');
+        return redirect()->action([UserController::class, 'read']);
     }
 
     // Read Operation =====
     public function read()
     {
         $data = User::all();
-        return view('crud.read',['data'=>$data]);
+        return view('crud.read', ['data' => $data]);
     }
 
     // Update Operation ====
     public function update($id)
     {
-        $data = User::select('id','name','email','password')->where('id','=',$id)->get();
-        return view('crud.edit',['data'=>$data]);
+        $data = User::select('id', 'name', 'email', 'password')->where('id', '=', $id)->get();
+        return view('crud.edit', ['data' => $data]);
     }
     public function edit(Request $request)
     {
@@ -53,13 +54,20 @@ class UserController extends Controller
         $email = $request->email;
 
         // Update query with eloquent Model
-        User::where('id','=',$id)->update([
-            'id'=>$id,
-            'name'=>$name,
-            'email'=>$email
+        User::where('id', '=', $id)->update([
+            'id' => $id,
+            'name' => $name,
+            'email' => $email
         ]);
 
-    return redirect()->action([UserController::class, 'read']);
-    
+        return redirect()->action([UserController::class, 'read']);
+    }
+
+    // Delete Data From the Database
+    public function delete($id)
+    {
+        User::where('id','=',$id)->delete();
+        return redirect()->action([UserController::class, 'read']);
+
     }
 }

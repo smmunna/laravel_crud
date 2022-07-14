@@ -25,3 +25,6 @@ Route::get('/read',[UserController::class,'read']);
 
 Route::get('/edit/{id}',[UserController::class,'update']);
 Route::post('edit',[UserController::class,'edit']);
+
+Route::get('/delete/{id}',[UserController::class,'delete']);
+
