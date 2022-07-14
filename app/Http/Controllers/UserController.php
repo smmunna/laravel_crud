@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class UserController extends Controller
 {
     //
@@ -16,6 +16,26 @@ class UserController extends Controller
             'email'=>'required | email',
             'password'=>'required | min:4'
         ]);
-        return"Okkay";
+
+        $id = $request->id;
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
+
+        // Eloquent Model for inserting the Data into the database
+        User::create([
+            'id'=>$id,
+            'name'=>$name,
+            'email'=>$email,
+            'password'=>$password
+        ]);
+
+        return view('welcome');
+    }
+
+    // Read Operation =====
+    public function read()
+    {
+        return "Readed anything";
     }
 }
