@@ -1,0 +1,21 @@
+/* For Welcome Page Styling-- */
+.row1 {
+    margin-top: 250px;
+}
+.heading1 {
+    margin-top: 10rem;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 400px;
+    line-height: 6rem;
+}
+
+/* For Create Page */
+.row2 {
+    margin-top: 6rem;
+}
+.createform {
+    display: flex;
+    justify-content: center;
+}
