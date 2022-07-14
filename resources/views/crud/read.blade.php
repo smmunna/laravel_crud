@@ -24,6 +24,9 @@
                             </tr>
                         @endforeach
                     </table>
+                    <div style="display: flex;justify-content:center;">
+                        {{$data->links()}}
+                    </div>
                 </div>
             </div>
         </div>

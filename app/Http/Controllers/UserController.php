@@ -37,7 +37,7 @@ class UserController extends Controller
     // Read Operation =====
     public function read()
     {
-        $data = User::all();
+        $data = User::paginate(5);
         return view('crud.read', ['data' => $data]);
     }
 
