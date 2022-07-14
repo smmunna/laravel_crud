@@ -11,7 +11,7 @@
 
 # Read_Page
 
-![image](https://user-images.githubusercontent.com/64527538/178770961-42c24e01-8bc4-461e-88b4-b60f2332bdf0.png)
+![image](https://user-images.githubusercontent.com/64527538/178888604-e840b24d-7e1d-43e8-ae51-9474732be047.png)
 
 # Update_Delete_Page
 
