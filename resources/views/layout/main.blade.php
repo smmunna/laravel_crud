@@ -30,7 +30,7 @@
                         <a class="nav-link" href="{{ url('/create') }}">Create</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Read</a>
+                        <a class="nav-link" href="{{url('/read')}}">Read</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

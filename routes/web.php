@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 Route::view('/create','crud.create');
 Route::post('create',[UserController::class,'create']);
+
+Route::get('/read',[UserController::class,'read']);
+
+Route::get('/edit/{id}',[UserController::class,'update']);
+Route::post('edit',[UserController::class,'edit']);

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class UserController extends Controller
 {
-    //
+    //Insert into the database
     public function create(Request $request)
     {
         // For Validation
@@ -36,6 +36,30 @@ class UserController extends Controller
     // Read Operation =====
     public function read()
     {
-        return "Readed anything";
+        $data = User::all();
+        return view('crud.read',['data'=>$data]);
+    }
+
+    // Update Operation ====
+    public function update($id)
+    {
+        $data = User::select('id','name','email','password')->where('id','=',$id)->get();
+        return view('crud.edit',['data'=>$data]);
+    }
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $name = $request->name;
+        $email = $request->email;
+
+        // Update query with eloquent Model
+        User::where('id','=',$id)->update([
+            'id'=>$id,
+            'name'=>$name,
+            'email'=>$email
+        ]);
+
+    return redirect()->action([UserController::class, 'read']);
+    
     }
 }
